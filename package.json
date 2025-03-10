@@ -2,6 +2,7 @@
   "name": "preview-document",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://gitname.github.io/react-gh-pages",
   "dependencies": {
     "@azure/msal-browser": "^4.5.1",
     "@azure/msal-react": "^3.0.5",
@@ -12,6 +13,7 @@
     "axios": "^1.8.2",
     "docx-preview": "^0.3.4",
     "dotenv": "^16.4.7",
+    "gh-pages": "^6.3.0",
     "google-auth-library": "^9.15.1",
     "googleapis": "^146.0.0",
     "mammoth": "^1.9.0",
@@ -27,6 +29,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "deploy": "gh-pages -d build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
