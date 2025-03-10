@@ -1,8 +1,8 @@
 {
-  "name": "preview-document",
+  "name": "react-preview-application",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://gitname.github.io/react-gh-pages",
+  "homepage": "https://gitname.github.io/react-preview-application",
   "dependencies": {
     "@azure/msal-browser": "^4.5.1",
     "@azure/msal-react": "^3.0.5",
