@@ -9,3 +9,10 @@ table, td, th {
 .colorSet{
   background-color: aqua;
 }
+
+.AlignPage{  
+  display:"flex";
+}
+.textboxBtm{
+  margin-bottom: 15px;
+}

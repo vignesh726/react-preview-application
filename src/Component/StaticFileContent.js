@@ -6,9 +6,10 @@ const StaticFileContent = () => {
     const [scrFile,setscrFile]=useState(null);
     const [isPreView,setisPreView]=useState(false);
     const [onedriveFile,setonedriveFile]=useState(null);
+    const [accessToken,setAccessToken]=useState('');
 
 useEffect(()=>{
-    getFileFromOneDrive().then(data => {
+    getFileFromOneDrive(accessToken).then(data => {
         if (data.error) {
           console.log('Error:', data.error);
         } else {
@@ -18,11 +19,11 @@ useEffect(()=>{
               setonedriveFile(filteredFiles)
         }
       });
-},[])
+},[accessToken])
 
 const LoadPreview=(id)=>{
     setisPreView(true);
-    postFileFromOneDrive(id).then(data => {
+    postFileFromOneDrive(accessToken,id).then(data => {
         if (data.error) {
         console.log('Error:', data.error);
         } else {
@@ -31,17 +32,26 @@ const LoadPreview=(id)=>{
         }
     });
 }
-
+const handleChange=(event)=> {
+    setAccessToken(event.target.value);
+  }
   
     return(<>
+     <div className="textboxBtm">
+        <label>Access Token : </label>
+        <input type="textarea" 
+          name="textValue"
+          onChange={(e)=>handleChange(e)}
+        />
+      </div>
     <div style={{display:"flex"}}>
     <div style={{width:"40%"}}>
-    <table >
+    {(onedriveFile&&onedriveFile?.length>0)?<table >
     <th>File Name</th>
     <th>File Type</th>
     <th>Click Privew </th>
     {onedriveFile?.map((x)=><tr><td>{x.name} </td><td>{x.name.split('.')[1]}</td> <td><button type="button" onClick={()=>LoadPreview(x.id)}>Click to Preview</button></td></tr>)}
-    </table>
+    </table>:<>No Document Found</>}
     </div>
     <div style={{width:"60%", height:"70vh"}}>
     {isPreView &&<iframe width={"100%"} height={"100%"} src={scrFile}/>}
