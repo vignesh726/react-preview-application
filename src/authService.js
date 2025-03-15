@@ -1,13 +1,12 @@
-// authConfig.js
+
 export const msalConfig = {
     auth: {
-      clientId: "ce01beec-6eeb-4f53-a177-af3ec8ce1669", // Replace with your app's client ID
-      authority: "https://login.microsoftonline.com/fe11687e-6b7a-4e5a-8391-07b6c395e512", // Replace with your tenant ID
+      clientId: "55cdc898-c249-45ae-afe5-fbdb4997d321", // Replace with your app's client ID
+      authority: "https://login.microsoftonline.com/949d4ab5-4410-40c6-858e-7b44ee2a2257", // Replace with your tenant ID
       redirectUri: "http://localhost:3000", // The redirect URI you set during registration
     },
-  };
-  
+  };  
   export const loginRequest = {
-    scopes: ["Files.Read", "offline_access"],
+    scopes: ["https://dealvps.sharepoint.com/.default"]
   };
   
