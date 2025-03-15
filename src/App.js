@@ -6,7 +6,7 @@ import StaticFileContent from "./Component/StaticFileContent";
 import {getFileFromSharepoint} from "./Component/Services";
 const App = () => {
   const msalInstance = new PublicClientApplication(msalConfig);
-  const [accessToken, setAccessToken] = useState(""); 
+  const [accessToken, setAccessToken] = useState(null); 
   const [fileContent, setFileContent] = useState();
  
   const SignInButton = () => {
@@ -39,9 +39,9 @@ const App = () => {
     <div>
         <div>
         <h1> File Reader Sharepoint</h1>
-        <MsalProvider instance={msalInstance}>
+        {!accessToken&&<MsalProvider instance={msalInstance}>
           <SignInButton />
-        </MsalProvider>
+        </MsalProvider>}
           </div>          
           <StaticFileContent files={fileContent} accessToken={accessToken}></StaticFileContent> 
         </div>
