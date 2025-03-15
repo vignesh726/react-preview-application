@@ -39,7 +39,7 @@ const App = () => {
     <div>
         <div>
         <h1> File Reader Sharepoint</h1>
-        {!accessToken&&<MsalProvider instance={msalInstance}>
+        {!(fileContent && fileContent?.length>0) && <MsalProvider instance={msalInstance}>
           <SignInButton />
         </MsalProvider>}
           </div>          
